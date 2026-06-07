@@ -1,0 +1,162 @@
+{
+"case": "representative_N-1_security_assessment",
+"action": "security_assessment",
+"target_model": "Nanjiang regional power-system model",
+"workflow_steps": [
+{
+"step": 1,
+"action": "security_assessment",
+"task_type": "model_and_scenario_activation",
+"instruction_clarification": "Activate the Nanjiang regional power-system model and use the current operating scenario as the initial state for the N-1 assessment.",
+"expected_output": "The target model and operating scenario are active before contingency execution.",
+"feedback_information": {
+"status": "clear",
+"message": "The model-activation requirement is clear if the prepared 201-bus model and the intended operating scenario are already available.",
+"unclear_items": [],
+"engineer_confirmation_required": false
+}
+},
+{
+"step": 2,
+"action": "security_assessment",
+"task_type": "contingency_scope_confirmation",
+"instruction_clarification": "Clarify whether the N-1 assessment should be global or limited to selected transmission lines.",
+"expected_output": "The contingency scope is confirmed before executing the N-1 workflow.",
+"feedback_information": {
+"status": "clarification_required",
+"message": "The original intent specifies an N-1 assessment but does not explicitly state whether the scope is global or partial. Engineer confirmation is required before execution.",
+"unclear_items": [
+"Whether the N-1 assessment should cover all available transmission lines or only a specified subset.",
+"Whether any out-of-service or special-operation branches should be excluded from the contingency set."
+],
+"engineer_confirmation_required": true,
+"engineer_response_record": "The engineer confirms global branch-outage N-1 assessment over the available transmission-line set."
+}
+},
+{
+"step": 3,
+"action": "security_assessment",
+"task_type": "contingency_set_generation",
+"instruction_clarification": "Generate the branch-outage contingency set according to the confirmed global N-1 scope.",
+"expected_output": "A sequential contingency list is prepared for branch-outage N-1 assessment.",
+"feedback_information": {
+"status": "clear",
+"message": "The contingency-set generation step is clear after the engineer confirms the global branch-outage scope.",
+"unclear_items": [],
+"engineer_confirmation_required": false
+}
+},
+{
+"step": 4,
+"action": "security_assessment",
+"task_type": "n1_contingency_execution_loop",
+"instruction_clarification": "Execute the N-1 assessment sequentially for each line in the confirmed branch-outage contingency set. For each line, apply the outage, run the security assessment or power-flow calculation, record the result, and restore the network state before moving to the next line.",
+"expected_output": "N-1 assessment results are recorded for all selected branch-outage contingencies.",
+"contingency_execution_pattern": {
+"per_contingency_actions": [
+"select_target_line",
+"apply_line_outage",
+"execute_security_assessment",
+"record_solver_status",
+"record_violation_or_loading_summary",
+"restore_original_line_status",
+"continue_to_next_line"
+]
+},
+"expanded_contingency_steps_example": [
+{
+"contingency_step": "C001",
+"target_line": "Line_001",
+"outage_action": "open Line_001",
+"assessment_action": "execute N-1 assessment for the current outage",
+"recorded_result_items": [
+"solver_status",
+"maximum_loading_summary",
+"violation_flag",
+"report_reference"
+],
+"post_action": "restore Line_001 before the next contingency"
+},
+{
+"contingency_step": "C002",
+"target_line": "Line_002",
+"outage_action": "open Line_002",
+"assessment_action": "execute N-1 assessment for the current outage",
+"recorded_result_items": [
+"solver_status",
+"maximum_loading_summary",
+"violation_flag",
+"report_reference"
+],
+"post_action": "restore Line_002 before the next contingency"
+},
+{
+"contingency_step": "...",
+"target_line": "...",
+"outage_action": "repeat the same outage-assessment-restoration pattern for the remaining selected lines",
+"assessment_action": "execute N-1 assessment for each remaining line outage",
+"recorded_result_items": [
+"solver_status",
+"maximum_loading_summary",
+"violation_flag",
+"report_reference"
+],
+"post_action": "restore each target line before continuing"
+},
+{
+"contingency_step": "C097",
+"target_line": "Line_097",
+"outage_action": "open Line_097",
+"assessment_action": "execute N-1 assessment for the current outage",
+"recorded_result_items": [
+"solver_status",
+"maximum_loading_summary",
+"violation_flag",
+"report_reference"
+],
+"post_action": "restore Line_097 after the final contingency"
+}
+],
+"feedback_information": {
+"status": "clear",
+"message": "The repeated N-1 execution pattern is clear after the contingency set is confirmed. The workflow explicitly restores the original network state after each outage to avoid state contamination between contingencies.",
+"unclear_items": [],
+"engineer_confirmation_required": false
+}
+},
+{
+"step": 5,
+"action": "security_assessment",
+"task_type": "n1_report_retrieval",
+"instruction_clarification": "Retrieve the N-1 assessment report after all selected branch-outage contingencies have been evaluated.",
+"input_source": [
+"n1_execution_results",
+"simulation_report_interface"
+],
+"expected_output": "The N-1 report is retrieved for result summarization and engineering review.",
+"feedback_information": {
+"status": "clear",
+"message": "The report-retrieval step is clear. The report should summarize the solver status and violation information for the evaluated contingencies.",
+"unclear_items": [],
+"engineer_confirmation_required": false
+}
+},
+{
+"step": 6,
+"action": "security_assessment",
+"task_type": "violation_summary_generation",
+"instruction_clarification": "Summarize the N-1 results into an engineer-oriented report, including contingency status, violation flags, and representative loading or overload information.",
+"input_source": [
+"n1_report",
+"recorded_contingency_results"
+],
+"expected_output": "A summarized N-1 result record is prepared for engineer review.",
+"feedback_information": {
+"status": "clear",
+"message": "The result-summary step is clear. Detailed engineering interpretation remains the responsibility of the engineer.",
+"unclear_items": [],
+"engineer_confirmation_required": false
+}
+}
+]
+}

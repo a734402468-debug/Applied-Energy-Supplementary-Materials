@@ -1,0 +1,80 @@
+{
+"case": "Nanjiang regional power-system model_preparation",
+"action": "modeling",
+"data_source": "Nanjiang_system_2019.json",
+"target_model":"Nanjiang regional power-system model",
+"workflow_steps": [
+{
+"step": 1,
+"action": "modeling",
+"task_type": "source_data_extraction",
+"input_source": [
+"Nanjiang_system_2019.json"
+],
+"expected_output": "A normalized set of equipment records for DGS model construction.",
+"feedback_information": {
+"status": "clarification_required",
+"message": "The modeling task is clear, but the exact source-data location and file naming convention should be confirmed before execution.",
+"unclear_items": [
+"Confirm the directory or file path of the prepared engineering data package.",
+"Confirm whether all source tables use the same component naming convention."
+],
+"engineer_confirmation_required": true
+}
+},
+{
+"step": 2,
+"action": "modeling",
+"task_type": "Typmodel",
+"instruction_clarification": "Create type-level definitions before creating element-level objects. This includes line types, transformer types, generator or PV-related types, and other reusable equipment templates required by the DGS model.",
+"expected_output": "Required Typ-level records are prepared for subsequent Elm-level object creation.",
+"feedback_information": {
+"status": "clear",
+"message": "The construction order is clear: reusable Typ-level definitions should be generated before Elm-level objects.",
+"unclear_items": [],
+"engineer_confirmation_required": false
+}
+},
+{
+"step": 3,
+"action": "modeling",
+"task_type": "Elmmodel",
+"instruction_clarification": "Create element-level objects after the required type definitions are available. The objects include terminals or busbars, lines, transformers, loads, photovoltaic stations, and associated generation or equipment objects.",
+"expected_output": "Elm-level objects are generated and associated with their corresponding type definitions.",
+"feedback_information": {
+"status": "clarification_required",
+"message": "The general object-creation logic is clear, but the mapping of PV-station records to the specific PowerFactory object classes should be confirmed.",
+"unclear_items": [
+"Confirm whether PV stations should be represented as static generators or composite plant objects"
+],
+"engineer_confirmation_required": true
+}
+},
+{
+"step": 4,
+"action": "modeling",
+"task_type": "Stamodel",
+"instruction_clarification": "After element objects are created, establish the topology-defining connection records. This includes terminal associations, cubicle or station-level connection records, and branch-terminal links required to form the electrical network.",
+"expected_output": "Electrical objects are connected according to the topology information in the source data.",
+"feedback_information": {
+"status": "clear",
+"message": "The topology-construction step is clear. Connectivity should be established after the corresponding element objects are available.",
+"unclear_items": [],
+"engineer_confirmation_required": false
+}
+},
+{
+"step": 5,
+"action": "modeling",
+"task_type": "Grpmodel",
+"instruction_clarification": "Generate or update the graphical representation after the electrical objects and topology links have been created. The graphical model should reference existing electrical objects rather than define electrical connectivity by itself.",
+"expected_output": "A graphical network representation is generated and linked to the electrical model.",
+"feedback_information": {
+"status": "clear",
+"message": "The graphical-model generation step is clear and should be performed after electrical objects and topology links are created.",
+"unclear_items": [],
+"engineer_confirmation_required": false
+}
+}
+]
+}

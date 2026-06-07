@@ -1,0 +1,10 @@
+Construct a  simulation model for the Nanjiang 201-bus regional power system using the prepared engineering data package. The source data include bus, transmission-line, transformer , photovoltaic-station records and their electrical parameters.  The workflow should follow the DGS modeling order:
+
+Step1.Extract and validate source data fields required for model construction.
+Step2.Create type-level definitions, including line types, transformer types, generator or PV-related types.
+Step3.Create element-level objects after the corresponding type definitions are available, including bus terminals, lines, transformers, loads, photovoltaic stations, and associated equipment objects.
+Step4.Establish topology-defining connection objects, including terminal associations and cubicle or station-level connection records, so that the network connectivity is consistent with the source data.
+Step5.Generate the graphical model representation after the electrical objects and topology links have been created.
+Perform consistency checks, including object-count consistency, missing-field detection, type-element consistency, topology-connectivity consistency, and engineer-review items.
+
+Do not invent missing electrical parameters or component names. If a required field is missing or ambiguous, flag it for engineer review rather than filling it with an unsupported value. 

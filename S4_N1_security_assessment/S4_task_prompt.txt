@@ -1,0 +1,3 @@
+Run an N-1 security-assessment workflow on the prepared Nanjiang regional power-system model.
+
+Use the active operating scenario of the prepared model as the initial state. First clarify whether the assessment should cover the global N-1 contingency set or only a specified subset of transmission lines. After the contingency scope is confirmed, generate a structured workflow plan for the security assessment.For each contingency, the workflow should specify the target line, the outage action, the power-flow or security-assessment execution, the restoration of the original network state before the next contingency, and the result item to be recorded.

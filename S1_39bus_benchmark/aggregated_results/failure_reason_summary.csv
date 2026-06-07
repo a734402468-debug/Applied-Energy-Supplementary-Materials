@@ -1,0 +1,11 @@
+﻿experiment_group,failure_layer,failure_reason,count,percentage_of_group
+Full workflow,planning,missing_intermediate_or_required_operation,12,0.9
+Full workflow,execution,postcondition_mismatch_or_execution_stage_failure,23,1.7
+Schema guidance removed,planning,missing_required_simulation_operations,357,26.4
+Schema guidance removed,execution,execution_stage_or_postcondition_failure,48,3.6
+Control layer removed,planning,planning_stage_failure,133,9.9
+Control layer removed,execution,incomplete_parameters_state_inconsistency_or_solver_execution_failure,302,22.4
+Qwen2.5-7B backbone,planning,missing_required_operations,254,18.8
+Qwen2.5-7B backbone,execution,incomplete_execution_parameters,123,9.1
+Llama-3.1-8B backbone,planning,invalid_or_incomplete_workflow_plans,483,35.8
+Llama-3.1-8B backbone,execution,execution_stage_failure,5,0.4
