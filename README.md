@@ -5,7 +5,7 @@ This repository provides supplementary materials for the manuscript:
 
 **A Trustworthy LLM-Enabled Workflow for Power-System Modeling and Security Assessment**
 
-The materials support the controlled benchmark and practical scalability assessment reported in the manuscript. They are organized into five supplementary folders.
+The materials support the controlled benchmark and practical scalability assessment reported in the manuscript. They are organized into four supplementary folders.
 
 ## Repository structure
 
@@ -15,16 +15,16 @@ The materials support the controlled benchmark and practical scalability assessm
 ├── S1_39bus_benchmark/
 ├── S2_KLM_time_estimation/
 ├── S3_modeling_workflow/
-├── S4_N1_security_assessment/
+└── S4_N1_security_assessment/
 ```
 
 ## Folder descriptions
 
 ### S1_39bus_benchmark
 
-This folder supports Section V of the manuscript. It contains the supplementary PDF and aggregated benchmark data for the controlled New England 39-bus evaluation.
+This folder supports Section V of the manuscript. It contains the supplementary PDF and aggregated data for the controlled New England 39-bus evaluation.
 
-The materials include the benchmark prompt suite, workflow-planning prompt, experimental configurations, aggregated reliability statistics, ablation and model-sensitivity results, plotting inputs, failure-summary statistics, and latency profiling records.
+The materials include the benchmark prompt suite, workflow-planning prompt, experimental configurations, aggregated reliability statistics, ablation and model-sensitivity results, plotting inputs, failure-summary statistics, and the additional latency-profiling records introduced in the revision.
 
 ### S2_KLM_time_estimation
 
@@ -40,6 +40,6 @@ This folder supports the representative N-1 security-assessment case study in Se
 
 ## Notes
 
-The supplementary materials are provided to document the benchmark settings, aggregated results, timing-estimation procedure, latency profiling, and representative workflow records used in the manuscript. Sensitive local paths, internal service addresses, and project-specific identifiers have been removed or replaced with generic descriptions where necessary.
+The supplementary materials are provided to document the benchmark settings, aggregated results, latency-profiling procedure, manual-time estimation procedure, and representative workflow records used in the manuscript. Sensitive local paths, internal service addresses, and project-specific identifiers have been removed or replaced with generic descriptions where necessary.
 
 The numerical results reported in the manuscript should be interpreted together with the corresponding tables and records in these supplementary folders.
