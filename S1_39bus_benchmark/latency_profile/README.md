@@ -13,8 +13,7 @@ The profiling evaluates three backbone models under the same workflow setting:
 The latency records are reported independently from the reliability benchmark results. They are intended to quantify the time contribution of LLM inference, deterministic workflow processing, solver execution, and state-verification related procedures.
 
 ## Files
-
-- `timing_profile_summary.csv`: aggregated latency statistics for all evaluated backbones.
+- `../aggregated_results/timing_profile_summary.csv`: aggregated latency statistics for all evaluated backbones.
 
 The metrics include:
 
