@@ -3,7 +3,7 @@
 
 This repository provides supplementary materials for the manuscript:
 
-**A Trustworthy LLM-Enabled Workflow for Power-System Modeling and Security Assessment**
+**A Trustworthy Intent-Driven LLM-Agent Workflow with State Verification for Power System Simulation**
 
 The materials support the controlled benchmark and practical scalability assessment reported in the manuscript. They are organized into four supplementary folders.
 
