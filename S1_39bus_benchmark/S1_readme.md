@@ -8,12 +8,15 @@ The materials are intended to document the benchmark prompt suite, experimental 
 .
 ├── README.md
 ├── Supplementary_Material.pdf
+├── latency_profile/
+│   └── README.md
 └── aggregated_results/
     ├── table2.csv
     ├── table3.csv
     ├── fig4.csv
     ├── fig5.csv
     ├── fig6.csv
+    ├── timing_profile_summary.csv
     └── failure_reason_summary.csv
 ```
 
@@ -33,8 +36,8 @@ The folder `aggregated_results/` contains the CSV files used to support the tabl
 
 | File                                    | Description                                                                                                 |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `table2.csv`  | Aggregated planning validity, task-correct execution rate, and plan-to-execution gap for the full workflow. |
-| `table3.csv` | Aggregated ablation and model-sensitivity results.                                                          |
+| `table2.csv`  | Aggregated planning validity, verified workflow completion rate, and plan-to-completion gap for the full workflow. |
+| `table3.csv` | Aggregated planning-validity, verified-workflow-completion, ablation, and model-sensitivity results.                                                       |
 | `fig4.csv`         | Input matrix for the full-workflow heatmap across task complexity levels and instruction variants.          |
 | `fig5.csv`        | Input matrix for the ablation and model-sensitivity comparison figure.                                      |
 | `fig6.csv`        | Input matrix for the composite-task instruction-variant trend figure.                                       |
