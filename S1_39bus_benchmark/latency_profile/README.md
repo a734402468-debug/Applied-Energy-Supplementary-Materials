@@ -17,7 +17,7 @@ The latency records are reported independently from the reliability benchmark re
 
 The metrics include:
 
-- `llm_latency_s`: LLM generation latency;
+- `llm_latency_s`: local vLLM API round-trip latency, including request and response overhead; it should not be interpreted as hardware-kernel-only inference time;
 - `deterministic_planning_s`: deterministic workflow processing time;
 - `execution_s`: simulation execution time;
 - `cleanup_s`: workspace cleanup time;
